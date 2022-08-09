@@ -1,4 +1,12 @@
+function hovered(e) {
+    this.classList.add('hovered');
+    this.style.backgroundColor = 'rgb(0,0,0)';
+}
+
 function createGrid(width, height) {
+    let squares = document.querySelectorAll('.square');
+    squares.forEach(square => square.removeEventListener('mouseenter', hovered));
+
     let grid = document.createElement('div');
     grid.setAttribute('class', 'squareGrid');
 
@@ -15,11 +23,12 @@ function createGrid(width, height) {
         grid.appendChild(row);
     }
 
-    return grid;
+    document.body.appendChild(grid);
+    squares = document.querySelectorAll('.square');
+    squares.forEach(square => square.addEventListener('mouseenter', hovered));
+
 }
 
 
 
-grid = createGrid(16, 16);
-
-document.body.appendChild(grid);
+createGrid(16, 16);
