@@ -1,6 +1,17 @@
 function hovered(e) {
-    this.classList.add('hovered');
-    this.style.backgroundColor = 'rgb(0,0,0)';
+    if (!this.classList.contains('hovered')) {
+        this.classList.add('hovered');
+    }
+    this.style.backgroundColor = 'rgb('+ Math.random()*255 +','+ Math.random()*255 +','+ Math.random()*255 + ')';
+    
+    let hoveredList = document.querySelectorAll('.hovered');
+    hoveredList.forEach(hov => {
+        if (hov !== this) {
+            let c = hov.style.backgroundColor;
+            let rgb = c.match(/\d+/g);
+            hov.style.backgroundColor = 'rgb(' + rgb[0] * .8 + ',' + rgb[1] * .8 + ',' + rgb[2] * .8 + ')';
+        }
+    });
 }
 
 function createGrid(side) {
