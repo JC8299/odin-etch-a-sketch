@@ -1,7 +1,23 @@
 body {
-    background-color: gray;
+    background-color: rgb(211, 36, 36);
     display: flex;
     justify-content: center;
+}
+
+.sketchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 6px;
+}
+
+.sketchContainer > button {
+    width: 80px;
+    height: 32px;
+    border-radius: 6px;
 }
 
 .squareGrid {
@@ -19,6 +35,6 @@ body {
 }
 
 .square {
-    border: 2px dotted yellow;
+    /* border: 2px dotted yellow; */
     flex: 1;
 }
